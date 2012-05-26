@@ -1,6 +1,7 @@
 language: php
 
 php:
+  - 5.2
   - 5.3
   - 5.4
 
@@ -10,6 +11,9 @@ env:
 before_script:
   # MySQL
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'create database test; create schema bookstore_schemas; create schema contest; create schema second_hand_books; create database reverse_bookstore;'; fi"
+
+  # Phar
+  - ./install_phar.sh
 
   # Composer
   - wget http://getcomposer.org/composer.phar
