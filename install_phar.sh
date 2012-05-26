@@ -1,6 +1,5 @@
 #!/bin/sh
-php -r "echo version_compare(PHP_VERSION, '5.3.0', '<') ? 'TRUE' : 'FALSE';"
-less_than_php_5_3=$?
+less_than_php_5.3=$(php -r "echo version_compare(PHP_VERSION, '5.3.0', '<') ? 'TRUE' : 'FALSE';")
 if [ ${less_than_php_5_3} = 'TRUE' ]
 then
   wget http://pecl.php.net/get/phar-2.0.0.tgz
